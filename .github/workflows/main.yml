@@ -22,11 +22,11 @@ on:
         required: true
         default: false
 
-      enable_ytab:
-        description: "Integrate YTABConfig"
-        type: boolean
-        required: true
-        default: false
+      #enable_ytab:
+        #description: "Integrate YTABConfig"
+        #type: boolean
+        #required: true
+        #default: false
 
       enable_ryd:
         description: "Integrate Return YouTube Dislikes"
@@ -223,7 +223,7 @@ jobs:
           git clone --quiet --depth=1 https://github.com/PoomSmart/YTVideoOverlay.git
 
       - name: Clone YTABConfig
-        if: ${{ inputs.enable_ytab }}
+        if: ${{ true }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YTABConfig.git
@@ -289,7 +289,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build YTABConfig
-        if: ${{ inputs.enable_ytab }}
+        if: ${{ true }}
         run: |
           cd ${{ github.workspace }}/YTABConfig
           make clean package DEBUG=0 FINALPACKAGE=1
